@@ -48,4 +48,4 @@ outputs:
         outputBinding:
             glob: secondary_analysis_anndata.h5ad
 
-baseCommand: ['python', 'opt/plaintext_to_old_anndata.py']
+baseCommand: ['python', '/opt/plaintext_to_old_anndata.py']
