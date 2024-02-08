@@ -16,11 +16,11 @@ def convert(orig_file: Path):
     scipy.sparse.save_npz(mtx_path, mtx)
     # get the obs
     obs_data = adata.obs
-    obs_path = Path(orig_file.name).with_suffix('_obs.csv')
+    obs_path = Path(orig_file.name, 'obs').with_suffix('.csv')
     obs_data.to_csv(obs_path)
     # get the var
     var_data = adata.var
-    var_path = Path(orig_file.name).with_suffix('_var.csv')
+    var_path = Path(orig_file.name, 'var').with_suffix('.csv')
     var_data.to_csv(var_path)
 
 
