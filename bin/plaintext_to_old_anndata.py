@@ -8,7 +8,7 @@ import scipy.sparse
 
 
 def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
-    mtx = scipy.io.mmread(mtx_file).tocsr()
+    mtx = scipy.io.mmread(mtx_file)
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
@@ -17,7 +17,7 @@ def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
 
 
 def convert_sa(mtx_file: Path , obs_file: Path, var_file: Path):
-    mtx = scipy.io.mmread(mtx_file).T.tocsr()
+    mtx = scipy.io.mmread(mtx_file)
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
@@ -33,8 +33,6 @@ if __name__ == '__main__':
     p.add_argument('sa_mtx_file', type=Path)
     p.add_argument('sa_var_file', type=Path)
     p.add_argument('sa_obs_file', type=Path)
-    p.add_argument('raw_file', type=Path)
-    p.add_argument('secondary_analysis_file', type=Path)
     args = p.parse_args()
     print("Converting raw file")
     convert_raw(args.raw_mtx_file, args.raw_obs_file, args.raw_var_file)
