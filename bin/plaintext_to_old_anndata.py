@@ -13,8 +13,11 @@ def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx_dense = mtx.tocsr() if scipy.sparse.issparse(mtx) else mtx
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
-    if mtx_dense.shape[0] != obs.shape[0]:
-        mtx_dense = mtx_dense.T
+    print("Mtx shape: ", mtx_dense.shape)
+    print("Obs shape: ", obs.shape)
+    print("Var shape: ", var.shape)
+    # if mtx_dense.shape[0] != obs.shape[0]:
+    #     mtx_dense = mtx_dense.T
     adata = anndata.AnnData(X=mtx_dense, obs=obs, var=var)
     output_path = Path('raw_anndata.h5ad')
     adata.write_h5ad(output_path)
@@ -25,8 +28,11 @@ def convert_sa(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx_dense = mtx.tocsr() if scipy.sparse.issparse(mtx) else mtx
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
-    if mtx_dense.shape[0] != obs.shape[0]:
-        mtx_dense = mtx_dense.T
+    print("Mtx shape: ", mtx_dense.shape)
+    print("Obs shape: ", obs.shape)
+    print("Var shape: ", var.shape)
+    # if mtx_dense.shape[0] != obs.shape[0]:
+    #     mtx_dense = mtx_dense.T
     adata = anndata.AnnData(X=mtx_dense, obs=obs, var=var)
     output_path = Path('secondary_analysis_anndata.h5ad')
     adata.write_h5ad(output_path)
