@@ -30,14 +30,6 @@ inputs:
         type: File
         inputBinding:
             position: 5
-    raw_file:
-        type: File
-        inputBinding:
-            position: 6
-    secondary_analysis_file:
-        type: File
-        inputBinding:
-            position: 7
 outputs:
     raw_anndata_file:
         type: File
