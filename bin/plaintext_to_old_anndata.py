@@ -10,7 +10,7 @@ import scipy.sparse
 
 def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx = scipy.io.mmread(mtx_file)
-    mtx.toarray()
+    mtx = mtx.toarray()
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
