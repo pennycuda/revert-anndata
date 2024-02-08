@@ -2,6 +2,7 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 import anndata
+import numpy as np
 import pandas as pd
 import scipy.io
 import scipy.sparse
@@ -9,6 +10,7 @@ import scipy.sparse
 
 def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx = scipy.io.mmread(mtx_file)
+    mtx.toarray()
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
