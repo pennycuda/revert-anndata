@@ -28,10 +28,6 @@ steps:
     plaintext_to_old_anndata:
         run: steps/plaintext_to_old_anndata.cwl
         in:
-            raw_file: 
-                source: raw_file
-            secondary_analysis_file:
-                source: secondary_analysis_file
             raw_mtx_file:
                 source: new_anndata_to_plaintext/raw_mtx_file
             raw_var_file:
