@@ -39,6 +39,6 @@ outputs:
     sa_obs_file:
         type: File
         outputBinding:
-            glob: sa_var.csv
+            glob: sa_obs.csv
 
 baseCommand: ['python', '/opt/new_anndata_to_plaintext.py']
