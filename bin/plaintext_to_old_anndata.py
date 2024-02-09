@@ -16,6 +16,7 @@ def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
     print("Obs shape: ", obs.shape)
     print("Var shape: ", var.shape)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
+    adata.layers['spliced_unspliced_sum'] = adata.X
     output_path = Path('raw_anndata.h5ad')
     adata.write_h5ad(output_path)
 
@@ -28,6 +29,7 @@ def convert_sa(mtx_file: Path , obs_file: Path, var_file: Path):
     print("Obs shape: ", obs.shape)
     print("Var shape: ", var.shape)
     adata = anndata.AnnData(X=mtx, obs=obs, var=var)
+    adata.layers['spliced_unspliced_sum'] = adata.X
     output_path = Path('secondary_analysis_anndata.h5ad')
     adata.write_h5ad(output_path)
 
