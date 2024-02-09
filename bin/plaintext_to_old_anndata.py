@@ -10,7 +10,7 @@ import scipy.sparse
 
 def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx = scipy.io.mmread(mtx_file)
-    mtx_dense = mtx.tocsr() if scipy.sparse.issparse(mtx) else mtx
+    mtx_dense = mtx.todense() if scipy.sparse.issparse(mtx) else mtx
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     print("Mtx shape: ", mtx_dense.shape)
@@ -25,7 +25,7 @@ def convert_raw(mtx_file: Path , obs_file: Path, var_file: Path):
 
 def convert_sa(mtx_file: Path , obs_file: Path, var_file: Path):
     mtx = scipy.io.mmread(mtx_file)
-    mtx_dense = mtx.tocsr() if scipy.sparse.issparse(mtx) else mtx
+    mtx_dense = mtx.todense() if scipy.sparse.issparse(mtx) else mtx
     obs = pd.read_csv(obs_file)
     var = pd.read_csv(var_file)
     print("Mtx shape: ", mtx_dense.shape)
