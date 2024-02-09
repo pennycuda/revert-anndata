@@ -41,7 +41,7 @@ if __name__ == '__main__':
     p.add_argument('sa_var_file', type=Path)
     p.add_argument('sa_obs_file', type=Path)
     args = p.parse_args()
-    print("Converting file")
+    print("Converting raw file")
     convert_raw(args.raw_mtx_file, args.raw_obs_file, args.raw_var_file)
     print("Converting secondary analysis file")
     convert_sa(args.sa_mtx_file, args.sa_obs_file, args.sa_var_file)
